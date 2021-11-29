@@ -1,0 +1,64 @@
+main {
+  display: flex;
+  justify-content: center;
+  padding: 5rem 10rem;
+}
+
+main > form {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 2rem;
+}
+
+body {
+  font-size: 1.58rem;
+}
+
+main > form > #calendario {
+  height: 4rem;
+  text-align: center;
+  border: 2px solid #ffa400;
+  border-radius: 4rem;
+
+  width: 100%;
+  max-width: 26.9rem;
+
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font: 700 2rem 'Roboto', sans-serif;
+}
+
+main > form > #calendario::placeholder {
+  color: #d3d3d3;
+}
+
+main > form > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  height: 4.5rem;
+  width: 20rem;
+
+  border: 1px solid #ea4335;
+  border-radius: 3rem;
+  background: none;
+
+  color: #fff;
+  font: 600 1.6rem 'Roboto', sans-serif;
+
+  margin-top: 5rem;
+}
+
+main > form > button > img {
+  max-width: 2.2rem;
+  filter: invert(100%);
+}
+
+main > form > button:hover {
+  background: #ea4335;
+}
