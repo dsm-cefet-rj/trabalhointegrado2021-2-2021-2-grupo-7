@@ -1,7 +1,7 @@
 main {
   display: flex;
   justify-content: center;
-  padding: 5rem 10rem;
+  padding: 5rem 0rem;
 }
 
 main > form {
@@ -9,29 +9,46 @@ main > form {
   flex-direction: column;
 
   align-items: center;
+  width: 100%;
 
   gap: 2rem;
+
+  font: 600 1.5rem 'Roboto', sans-serif;
 }
 
-body {
-  font-size: 1.58rem;
-}
-
-main > form > #calendario {
+.form-nome,
+.form-tel {
   height: 4rem;
   text-align: center;
   border: 2px solid #ffa400;
   border-radius: 4rem;
 
   width: 100%;
-  max-width: 26.9rem;
 
   background: rgba(255, 255, 255, 0.3);
   color: #fff;
   font: 700 2rem 'Roboto', sans-serif;
 }
 
-main > form > #calendario::placeholder {
+.form-nome {
+  max-width: 35rem;
+}
+
+.form-tel {
+  max-width: 30rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+main > form > input::placeholder {
   color: #d3d3d3;
   font: 500 1.8rem 'Roboto', sans-serif;
 }

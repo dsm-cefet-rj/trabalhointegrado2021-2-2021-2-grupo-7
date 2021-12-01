@@ -1,0 +1,150 @@
+main {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0;
+}
+
+main > form {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  font: 600 1.5rem 'Roboto', sans-serif;
+
+  gap: 2rem;
+}
+
+.relatorio-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+
+  gap: 2.5rem;
+  padding: 3rem 3rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2rem;
+  border: 3px solid #1b231a;
+}
+
+.relatorio-container > fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  width: 100% !important;
+  max-width: 50rem !important;
+  border: 2px solid #ffa400;
+
+  border-radius: 1.3rem;
+  padding: 2rem 3.5rem;
+}
+
+.relatorio-container > fieldset > p {
+  text-align: center;
+  gap: 1rem;
+}
+
+.relatorio-container > fieldset > p > strong {
+  font: 600 1.6rem 'Poppins', sans-serif;
+}
+
+.relatorio-container > fieldset > p > span {
+  font: 500 1.6rem 'Roboto', sans-serif;
+}
+
+.funcionario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.funcionario > .info-funcionario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  padding: 1rem;
+  border: 1px solid #fff;
+  border-radius: 1rem;
+}
+
+.funcionario > .info-funcionario > img {
+  width: 6rem;
+  border: 2px solid #fff;
+  border-radius: 3rem;
+}
+
+.funcionario > .info-funcionario > strong {
+  text-align: center;
+}
+
+.servicos {
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-servico {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #fff;
+  border-radius: 1rem;
+
+  width: 10rem;
+}
+
+.info-servico > img {
+  width: 5rem;
+}
+
+.valor-final {
+  font: 600 1.8rem 'Roboto', sans-serif;
+}
+
+.valor-final > p > span {
+  text-decoration: underline;
+  color: #79c44e;
+}
+
+main > form > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  height: 4.5rem;
+  width: 20rem;
+
+  border: 1px solid #79c44e;
+  border-radius: 3rem;
+  background: none;
+
+  color: #fff;
+  font: 600 1.6rem 'Roboto', sans-serif;
+
+  margin-top: 5rem;
+}
+
+button > .icone {
+  max-width: 2.2rem;
+  filter: invert(100%);
+}
+
+main > form > button:hover {
+  background: #79c44e;
+}
+
+@media (max-width: 400px) {
+  main > form {
+    font: 500 1.4rem 'Roboto', sans-serif;
+    text-align: center;
+  }
+}

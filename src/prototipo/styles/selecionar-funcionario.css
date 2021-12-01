@@ -98,3 +98,10 @@ button > .icone {
 main > form > button:hover {
   background: #ea4335;
 }
+
+@media (max-width: 400px) {
+  main > form {
+    font: 500 1.4rem 'Roboto', sans-serif;
+    text-align: center;
+  }
+}

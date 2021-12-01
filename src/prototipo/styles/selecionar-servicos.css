@@ -1,7 +1,7 @@
 main {
   display: flex;
   justify-content: center;
-  padding: 5rem 10rem;
+  padding: 5rem 0;
 }
 
 main > form {
@@ -10,31 +10,31 @@ main > form {
 
   align-items: center;
 
-  gap: 2rem;
-
   font: 600 1.5rem 'Roboto', sans-serif;
+
+  gap: 2rem;
 }
 
-main > form > .horarios {
+main > form > .servicos {
   display: flex;
   flex-flow: wrap;
   align-items: center;
   justify-content: center;
 
   width: 100%;
-  max-width: 43.2rem;
+  max-width: 49rem;
 
-  gap: 3rem;
+  gap: 2rem;
 }
 
-.horarios > .horario {
+.servicos > .servico {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  width: 7rem;
-  height: 3rem;
+  width: 15rem;
+  height: 15rem;
 
   border-radius: 2rem;
   border: 2px solid #fff;
@@ -46,19 +46,27 @@ main > form > .horarios {
 }
 
 .selecionado {
-  color: #ffa400 !important;
   border: 2px solid #ffa400 !important;
   background: rgba(255, 164, 0, 0.2) !important;
 }
 
-.disponivel {
-  color: #78ec35 !important;
-  border: 2px solid #78ec35 !important;
-  background: rgba(120, 236, 53, 0.2) !important;
+.selecionado > strong {
+  color: #ffa400;
 }
 
-.horario:hover {
-  filter: brightness(0.75);
+.selecionado > img {
+  filter: invert(57%) sepia(91%) saturate(672%) hue-rotate(357deg)
+    brightness(101%) contrast(110%) !important;
+}
+
+.servico > img {
+  width: 10rem;
+  padding: 1rem;
+  filter: invert(100%);
+}
+
+.servico > strong {
+  font: 500 1.8rem 'Poppins', sans-serif;
 }
 
 main > form > button {
