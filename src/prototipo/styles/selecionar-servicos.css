@@ -42,7 +42,11 @@ main > form > .servicos {
 
   color: #fff;
 
-  gap: 1.5rem;
+  gap: 0.5rem;
+}
+
+.servico > p {
+  color: #78ec35;
 }
 
 .selecionado {
@@ -60,8 +64,8 @@ main > form > .servicos {
 }
 
 .servico > img {
-  width: 10rem;
-  padding: 1rem;
+  width: 8rem;
+  padding: 0.5rem;
   filter: invert(100%);
 }
 
