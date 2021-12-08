@@ -27,7 +27,7 @@ header {
   gap: 1.2rem;
 
   align-items: center;
-
+  text-align: center;
   padding-top: 2rem;
 }
 
@@ -44,7 +44,7 @@ main {
 
   width: 100%;
 
-  padding: 2rem 5rem;
+  padding: 2rem;
   gap: 2rem;
 }
 
