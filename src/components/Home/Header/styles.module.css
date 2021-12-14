@@ -1,0 +1,38 @@
+.container {
+  padding: 1rem;
+  width: 100%;
+}
+
+.conteudo {
+  width: 100%;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  padding: 5rem 0 3rem;
+}
+
+.logo {
+  width: 80vw;
+  max-width: 30.7rem;
+}
+
+.textos {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.2rem;
+
+  align-items: center;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+@media (min-width: 750px) {
+  .textos {
+    font: 700 2rem 'Roboto', sans-serif;
+  }
+}
