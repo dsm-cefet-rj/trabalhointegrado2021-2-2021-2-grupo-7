@@ -1,21 +1,31 @@
+import { Link } from 'react-router-dom';
+
 import calendarioIcon from '../../../assets/calendario.svg';
 import loginIcon from '../../../assets/login.svg';
 
 import styles from './styles.module.css';
 
 function Main() {
+  function handleLogin(event) {
+    event.preventDefault();
+  }
+
   return (
     <main className={styles.principal}>
       <div className={styles.acoes}>
-        <a href="#" className={styles.acaoItem + ' ' + styles.acaoVermelho}>
+        <Link to="/" className={styles.acaoItem + ' ' + styles.acaoVermelho}>
           <img src={calendarioIcon} alt="calendario icone" />
           Agendar agora
-        </a>
+        </Link>
 
-        <a href="#" className={styles.acaoItem + ' ' + styles.acaoHover}>
+        <Link
+          to="/login"
+          className={styles.acaoItem + ' ' + styles.acaoHover}
+          onClick={handleLogin}
+        >
           <img src={loginIcon} alt="login icone" />
           Login
-        </a>
+        </Link>
       </div>
     </main>
   );

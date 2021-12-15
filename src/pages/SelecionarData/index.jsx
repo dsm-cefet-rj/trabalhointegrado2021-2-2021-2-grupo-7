@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Header } from '../../components/Header';
 
@@ -9,12 +10,18 @@ import styles from './styles.module.css';
 function SelecionarData() {
   const [data, setData] = useState(new Date().toLocaleDateString());
 
+  const navigate = useNavigate();
+
+  function handleBotaoProximaTela() {
+    navigate(`/`);
+  }
+
   return (
     <div className="content">
       <main className={styles.principal}>
         <Header />
 
-        <form action="#" className={styles.formulario}>
+        <form className={styles.formulario} onSubmit={handleBotaoProximaTela}>
           <h2>Selecione o dia desejado:</h2>
 
           <input type="text" placeholder="Data" value={data} />
