@@ -1,0 +1,48 @@
+.container {
+  padding: 1rem;
+  width: 100%;
+}
+
+.conteudo {
+  width: 100%;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 5rem 0 3rem;
+
+  gap: 2rem;
+}
+
+.headerLogo {
+  max-width: 10rem;
+}
+
+.headerLogo > img {
+  width: 100%;
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerContent > h2 {
+  font: 700 2.5rem 'Poppins', sans-serif;
+  text-align: center;
+}
+
+@media (max-width: 400px) {
+  .conteudo {
+    flex-direction: column;
+  }
+
+  .headerContent > h2 {
+    font: 600 1.8rem 'Poppins', sans-serif;
+    padding: 0 !important;
+    text-align: center;
+  }
+}
