@@ -1,0 +1,109 @@
+.principal {
+    display: flex;
+    justify-content: center;
+    padding: 5rem 0;
+  }
+  
+  .principal > form {
+    display: flex;
+    flex-direction: column;
+  
+    align-items: center;
+  
+    font: 600 1.5rem 'Roboto', sans-serif;
+  
+    gap: 2rem;
+  }
+  
+  .principal > form > .servicos {
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: center;
+  
+    width: 100%;
+    max-width: 49rem;
+  
+    gap: 2rem;
+  }
+  
+  .servicos > .servico {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    width: 15rem;
+    height: 15rem;
+  
+    border-radius: 2rem;
+    border: 2px solid #fff;
+    background: rgba(255, 255, 255, 0.2);
+  
+    color: #fff;
+  
+    gap: 0.5rem;
+  }
+  
+  .servico > p {
+    color: #78ec35;
+  }
+  
+  .selecionado {
+    border: 2px solid #ffa400 !important;
+    background: rgba(255, 164, 0, 0.2) !important;
+  }
+  
+  .selecionado > strong {
+    color: #ffa400;
+  }
+  
+  .selecionado > img {
+    filter: invert(57%) sepia(91%) saturate(672%) hue-rotate(357deg)
+      brightness(101%) contrast(110%) !important;
+  }
+  
+  .servico > img {
+    width: 8rem;
+    padding: 0.5rem;
+    filter: invert(100%);
+  }
+  
+  .servico > strong {
+    font: 500 1.8rem 'Poppins', sans-serif;
+  }
+  
+  .principal > form > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  
+    height: 4.5rem;
+    width: 20rem;
+  
+    border: 1px solid #ea4335;
+    border-radius: 3rem;
+    background: none;
+  
+    color: #fff;
+    font: 600 1.6rem 'Roboto', sans-serif;
+  
+    margin-top: 5rem;
+  }
+  
+  .icone {
+    max-width: 2.2rem;
+    filter: invert(100%);
+  }
+  
+  .principal > form > button:hover {
+    background: #ea4335;
+  }
+  
+  @media (max-width: 400px) {
+    .principal > form {
+      font: 500 1.4rem 'Roboto', sans-serif;
+      text-align: center;
+    }
+  }
