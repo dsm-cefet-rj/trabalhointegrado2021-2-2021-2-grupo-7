@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAgendamento }from '../../hooks/useAgendamento';
+import { useAgendamento } from '../../hooks/useAgendamento';
 import { Header } from '../../components/Header';
 
 import rightArrowIcon from '../../assets/right-arrow.svg';
@@ -64,7 +64,7 @@ function SelecionarFuncionario() {
     }
   }
 
-return (
+  return (
     <div className="content">
       <Header />
 
@@ -73,27 +73,25 @@ return (
           <h2>Selecione o Barbeiro desejado:</h2>
           <div className={styles.funcionarios}>
             {funcs.map(func => (
-              <button key={func.id}
-              type="button"
-              onClick={() => handleSelecionarFunc(func)}
-              className={ 
-                  styles.func + 
-                  (func.selecionado
-                  ? ' ' + styles.selecionado
-                  : '')
+              <button
+                key={func.id}
+                type="button"
+                onClick={() => handleSelecionarFunc(func)}
+                className={
+                  styles.func +
+                  (func.selecionado ? ' ' + styles.selecionado : '')
                 }
-
               >
-                <p>{func.valor}</p>    
-              
-                <img src={func.foto} alt="Barbeiro" className={styles.img}/>
+                <p>{func.nome}</p>
 
-                <h3>{func.especialidade}</h3>  
+                <img src={func.foto} alt="Barbeiro" className={styles.img} />
+
+                <h3>{func.especialidade}</h3>
               </button>
             ))}
           </div>
 
-          <button type="submit">           
+          <button type="submit">
             <img src={rightArrowIcon} alt="seta" className={styles.icone} />
             Proximo
           </button>
