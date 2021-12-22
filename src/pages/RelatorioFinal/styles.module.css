@@ -24,10 +24,12 @@
   font: 500 1.6rem 'Roboto', sans-serif;
 }
 
-.sevicos {
+.servicos {
   display: flex;
   justify-content: center;
   gap: 2rem;
+  max-width: 34rem;
+  flex-wrap: wrap;
 }
 
 .valorFinal {
