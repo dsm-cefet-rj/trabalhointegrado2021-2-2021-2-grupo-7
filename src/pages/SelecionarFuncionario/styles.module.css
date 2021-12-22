@@ -1,0 +1,201 @@
+.principalfunc {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 10rem;
+}
+
+.formulariofunc {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  font: 600 1.5rem 'Roboto', sans-serif;
+
+  gap: 2rem;
+}
+
+.func {
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 43.2rem;
+
+  gap: 3rem;
+}
+
+
+.formulariofunc > .funcionario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 20rem;
+  height: 20rem;
+
+  border-radius: 2rem;
+  border: 2px solid #fff;
+  background: rgba(255, 255, 255, 0.2);
+
+  color: #fff;
+
+  gap: 1.5rem;
+}
+
+.selecionado {
+  color: #ffa400 !important;
+  border: 2px solid #ffa400 !important;
+  background: rgba(255, 164, 0, 0.2) !important;
+}
+
+
+.func > .infos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.func > .infos > strong {
+  text-align: center;
+}
+
+.func > .infos > h3 {
+  text-align: center;
+}
+
+.func > .infos > p {
+  text-align: center;
+}
+
+main > form > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  height: 4.5rem;
+  width: 20rem;
+
+  border: 1px solid #ea4335;
+  border-radius: 3rem;
+  background: none;
+
+  color: #fff;
+  font: 600 1.6rem 'Roboto', sans-serif;
+
+  margin-top: 5rem;
+}
+
+button > .icone {
+  max-width: 2.2rem;
+  filter: invert(100%);
+}
+
+main > form > button:hover {
+  background: #ea4335;
+}main {
+  display: flex;
+  justify-content: center;
+  padding: 5rem 10rem;
+}
+
+main > form {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  font: 600 1.5rem 'Roboto', sans-serif;
+
+  gap: 2rem;
+}
+
+main > form > .funcionarios {
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 43.2rem;
+
+  gap: 3rem;
+}
+
+.funcionarios > .func {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 20rem;
+  height: 20rem;
+
+  border-radius: 2rem;
+  border: 2px solid lightgray;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  
+  color: #fff;
+
+  gap: 2rem;
+}
+
+
+.func > img {
+  border: 2px solid lightgray;
+  border-radius: 12px;
+  width: 9rem;
+  height: 9rem;
+  background-color: lightgray;
+}
+
+.func > .infos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+.func > p {
+  text-align: center;
+  font: 700 1.7rem 'Poppins', sans-serif;
+}
+
+.func > h3 {
+  text-align: center;
+  /*color: #a7a04f;*/
+  font: 600 1.5rem 'Poppins', sans-serif;
+}
+
+main > form > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  height: 4.5rem;
+  width: 20rem;
+
+  border: 1px solid #ea4335;
+  border-radius: 3rem;
+  background: none;
+
+  color: #fff;
+  font: 600 1.6rem 'Roboto', sans-serif;
+
+  margin-top: 5rem;
+}
+
+button > .icone {
+  max-width: 2.2rem;
+  filter: invert(100%);
+}
+
+main > form > button:hover {
+  background: #ea4335;
+}
