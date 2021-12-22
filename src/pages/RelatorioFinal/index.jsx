@@ -23,7 +23,7 @@ function RelatorioFinal() {
   } = useAgendamento();
 
   function handleConcluir() {
-    navigate(`/`);
+    navigate(`/conclusao`);
   }
 
   function getValorTotal() {
