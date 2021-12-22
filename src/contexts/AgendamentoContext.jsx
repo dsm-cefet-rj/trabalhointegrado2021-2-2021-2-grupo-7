@@ -12,7 +12,7 @@ export function AgendamentoContextProvider(props) {
 
   const [horarioSelecionado, setHorarioSelecionado] = useState(null);
   const [servicoSelecionado, setServicoSelecionado] = useState(null);
-  // const [isHomePage, setIsHomePage] = useState(true);
+  const [funcionarioSelecionado, setFuncSelecionado] = useState(null);
   // const [isHomePage, setIsHomePage] = useState(true);
   // const [isHomePage, setIsHomePage] = useState(true);
   // const [isHomePage, setIsHomePage] = useState(true);
@@ -20,7 +20,7 @@ export function AgendamentoContextProvider(props) {
 
   return (
     <AgendamentoContext.Provider
-      value={{ horarioSelecionado, setHorarioSelecionado, servicoSelecionado , setServicoSelecionado }}
+      value={{ horarioSelecionado, setHorarioSelecionado, servicoSelecionado , setServicoSelecionado, funcionarioSelecionado, setFuncSelecionado }}
     >
       {children}
     </AgendamentoContext.Provider>

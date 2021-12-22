@@ -5,11 +5,10 @@ import Barbeiro4 from '../assets/barbeiro4.jpg';
 import Barbeiro5 from '../assets/barbeiro5.jpg';
 import Barbeiro6 from '../assets/barbeiro6.png';
 
-const barbeiros = [
+const funcs = [
   {
     id: 1,
     valor: 'Alan',
-    disponivel: true,
     selecionado: false,
     especialidade: 'Especialidade: Barba',
     foto: Barbeiro1,
@@ -17,7 +16,6 @@ const barbeiros = [
   {
     id: 2,
     valor: 'César',
-    disponivel: true,
     selecionado: false,
     especialidade: 'Especialidade: Cabelo',
     foto: Barbeiro2,
@@ -25,7 +23,6 @@ const barbeiros = [
   {
     id: 3,
     valor: 'Julio',
-    disponivel: true,
     selecionado: false,
     especialidade: 'Especialidade: Barba',
     foto: Barbeiro3,
@@ -33,7 +30,6 @@ const barbeiros = [
   {
     id: 4,
     valor: 'Vitor',
-    disponivel: false,
     selecionado: false,
     especialidade: 'Especialidade: Cabelo',
     foto: Barbeiro4,
@@ -41,7 +37,6 @@ const barbeiros = [
   {
     id: 5,
     valor: 'David',
-    disponivel: false,
     selecionado: false,
     especialidade: 'Especialidade: Cabelo',
     foto: Barbeiro5,
@@ -49,11 +44,10 @@ const barbeiros = [
   {
     id: 6,
     valor: 'Lucas',
-    disponivel: true,
     selecionado: false,
     especialidade: 'Especialidade: Barba',
     foto: Barbeiro6,
   },
 ];
 
-export { barbeiros };
+export { funcs };
