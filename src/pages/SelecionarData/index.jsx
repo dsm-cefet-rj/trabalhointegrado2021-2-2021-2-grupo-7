@@ -1,5 +1,7 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { useAgendamento } from '../../hooks/useAgendamento';
+
 import { Header } from '../../components/Header';
 
 import rightArrowIcon from '../../assets/right-arrow.svg';
@@ -7,7 +9,7 @@ import rightArrowIcon from '../../assets/right-arrow.svg';
 import styles from './styles.module.css';
 
 function SelecionarData() {
-  const [data, setData] = useState(new Date().toLocaleDateString());
+  const { data, setData } = useAgendamento();
 
   const navigate = useNavigate();
 
@@ -23,7 +25,12 @@ function SelecionarData() {
         <form className={styles.formulario} onSubmit={handleBotaoProximaTela}>
           <h2>Selecione o dia desejado:</h2>
 
-          <input type="text" placeholder="Data" value={data} />
+          <input
+            type="text"
+            placeholder="Data"
+            value={data}
+            onChange={event => setData(event.target.value)}
+          />
 
           <button type="submit">
             <img src={rightArrowIcon} alt="seta" />

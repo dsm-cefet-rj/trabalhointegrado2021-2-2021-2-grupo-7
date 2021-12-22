@@ -5,6 +5,7 @@ export const AgendamentoContext = createContext({});
 export function AgendamentoContextProvider(props) {
   const { children } = props;
 
+  const [data, setData] = useState(new Date().toLocaleDateString());
   const [horarioSelecionado, setHorarioSelecionado] = useState(null);
   const [servicoSelecionado, setServicoSelecionado] = useState(null);
   const [funcionarioSelecionado, setFuncSelecionado] = useState(null);
@@ -13,6 +14,9 @@ export function AgendamentoContextProvider(props) {
   return (
     <AgendamentoContext.Provider
       value={{
+        data,
+        setData,
+
         horarioSelecionado,
         setHorarioSelecionado,
 

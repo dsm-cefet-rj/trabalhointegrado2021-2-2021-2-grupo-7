@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 
+import { useAgendamento } from '../../hooks/useAgendamento';
+import { handleCurrency } from '../../Utils/UtilNumero';
+
 import { Header } from '../../components/Header';
 import { Funcionario } from '../../components/RelatorioFinal/Funcionario';
 import { Secao } from '../../components/RelatorioFinal/Secao';
 import { Servico } from '../../components/RelatorioFinal/Servico';
 
-import tesouraImagem from '../../assets/tesouras.png';
-import maquinaImagem from '../../assets/maquina-de-cortar-cabelo.png';
 import buttonImage from '../../assets/check.svg';
 
 import styles from './styles.module.css';
@@ -14,12 +15,28 @@ import styles from './styles.module.css';
 function RelatorioFinal() {
   const navigate = useNavigate();
 
+  const {
+    data,
+    horarioSelecionado,
+    servicoSelecionado,
+    funcionarioSelecionado,
+  } = useAgendamento();
+
   function handleConcluir() {
     navigate(`/`);
   }
 
+  function getValorTotal() {
+    const valorTotal = servicoSelecionado.reduce((acc, servico) => {
+      acc += Number(servico.valor);
+      return acc;
+    }, 0);
+
+    return valorTotal;
+  }
+
   return (
-    <div class="content">
+    <div className="content">
       <Header />
 
       <main className={styles.principal}>
@@ -41,28 +58,30 @@ function RelatorioFinal() {
             <Secao titulo="Data">
               <p>
                 <strong>Dia: </strong>
-                <span>17/12/2021</span>
+                <span>{data}</span>
               </p>
               <p>
                 <strong>Horário: </strong>
-                <span> 9:00 </span>
+                <span> {horarioSelecionado.valor} </span>
               </p>
             </Secao>
 
             <Secao titulo="Funcionário">
-              <Funcionario nome="César" especialidade="Especialidade: Cabelo" />
+              <Funcionario funcionario={funcionarioSelecionado} />
             </Secao>
 
             <Secao titulo="Serviços">
-              <div className={styles.sevicos}>
-                <Servico nome="Tesoura" imagem={tesouraImagem} />
-                <Servico nome="Máquina" imagem={maquinaImagem} />
+              <div className={styles.servicos}>
+                {servicoSelecionado.map(servico => (
+                  <Servico key={servico.id} servico={servico} />
+                ))}
               </div>
             </Secao>
 
             <div className={styles.valorFinal}>
               <p>
-                Valor total: <span>R$ 30,00</span>
+                Valor total:{' '}
+                <span>{handleCurrency.format(getValorTotal())}</span>
               </p>
             </div>
           </div>
