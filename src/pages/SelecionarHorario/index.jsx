@@ -15,6 +15,7 @@ function SelecionarHorario() {
   const [horarios, setHorarios] = useState(utilHorarios);
 
   const { setHorarioSelecionado } = useAgendamento();
+
   const navigate = useNavigate();
 
   function handleBotaoProximaTela() {
@@ -34,9 +35,22 @@ function SelecionarHorario() {
     setHorarios(novosHorarios);
   }
 
+  function removeSelecionado() {
+    const novosHorarios = horarios.map(horario => {
+      if (horario.selecionado) {
+        horario.selecionado = false;
+      }
+
+      return horario;
+    });
+
+    setHorarios(novosHorarios);
+  }
+
   function adicionaSelecao(id) {
     const novosHorarios = horarios.map(horario => {
       if (horario.id === id && horario.disponivel) {
+        removeSelecionado();
         horario.selecionado = true;
         setHorarioSelecionado(horario);
       }
@@ -65,7 +79,7 @@ function SelecionarHorario() {
           <div className={styles.horarios}>
             {horarios.map(horario => (
               <button
-                key={horario}
+                key={horario.id}
                 type="button"
                 onClick={() => handleSelecionarHorario(horario)}
                 className={
