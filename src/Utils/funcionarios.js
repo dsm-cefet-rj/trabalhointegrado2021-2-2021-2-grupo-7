@@ -18,7 +18,7 @@ const barbeiros = [
     id: 2,
     valor: 'César',
     disponivel: true,
-    selecionado: true,
+    selecionado: false,
     especialidade: 'Especialidade: Cabelo',
     foto: Barbeiro2,
   },

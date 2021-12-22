@@ -33,7 +33,7 @@ const horarios = [
     id: 6,
     valor: '10:30',
     disponivel: true,
-    selecionado: true,
+    selecionado: false,
   },
   {
     id: 7,
