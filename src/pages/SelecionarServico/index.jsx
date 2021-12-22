@@ -1,17 +1,60 @@
-import { servicos } from '../../Utils/servicos';
+import { servicos as utilServicos} from '../../Utils/servicos';
 
 import rightArrowIcon from '../../assets/right-arrow.svg';
-
+import { useAgendamento }from '../../hooks/useAgendamento';
 import styles from './styles.module.css';
 import { Header } from '../../components/Header';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 function SelecionarServico() {
   const navigate = useNavigate();
+  const { setServicoSelecionado } = useAgendamento();
+  const [servicos, setServicos] = useState(utilServicos);
+
 
   function handleBotaoProximaTela() {
     navigate(`/confirmar-agendamento`);
   }
+
+  function removeSelecao(id) {
+    const novosServicos = servicos.map(servico => {
+      if (servico.id === id) {
+        servico.selecionado = false;
+        setServicoSelecionado(listarSelecionados());
+      }
+
+      return servico;
+    });
+
+    setServicos(novosServicos);
+  }
+
+  function listarSelecionados(){
+    return servicos.filter(servico => servico.selecionado)
+  }
+
+  function adicionaSelecao(id) {
+    const novosServicos = servicos.map(servico => {
+      if (servico.id === id) {
+        servico.selecionado = true;
+        setServicoSelecionado(listarSelecionados());
+      }
+
+      return servico;
+    });
+
+    setServicos(novosServicos);
+  }
+
+  function handleSelecionarServico(servico) {
+    if (servico.selecionado) {
+      removeSelecao(servico.id);
+    } else {
+      adicionaSelecao(servico.id);
+    }
+  }
+
   return (
     <>
       <Header />
@@ -21,7 +64,9 @@ function SelecionarServico() {
           <div className={styles.servicos}>
             {servicos.map(servico => (
               <button
+                key={servico.id}
                 type="button"
+                onClick={() => handleSelecionarServico(servico)}
                 className={
                   styles.servico +
                   (servico.selecionado ? ` ${styles.selecionado}` : '')
