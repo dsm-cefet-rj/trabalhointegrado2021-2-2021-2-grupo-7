@@ -13,7 +13,7 @@ function SelecionarData() {
   const navigate = useNavigate();
 
   function handleBotaoProximaTela() {
-    navigate(`/`);
+    navigate(`/selecionar-horario`);
   }
 
   return (
