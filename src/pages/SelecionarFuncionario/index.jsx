@@ -17,7 +17,7 @@ function SelecionarFuncionario() {
   const navigate = useNavigate();
 
   function handleBotaoProximaTela() {
-    navigate(`/confirmar-agendamento`);
+    navigate(`/selecionar-servico`);
   }
 
   const handleClick = () => {
