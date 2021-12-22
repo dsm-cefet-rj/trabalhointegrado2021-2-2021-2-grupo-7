@@ -5,6 +5,7 @@ import { SelecionarData } from './pages/SelecionarData';
 import { SelecionarHorario } from './pages/SelecionarHorario';
 import { RelatorioFinal } from './pages/RelatorioFinal';
 import {SelecionarServico } from './pages/SelecionarServico';
+import { SelecionarFuncionario } from './pages/SelecionarFuncionario';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/selecionar-horario" element={<SelecionarHorario />} />
         <Route path="/confirmar-agendamento" element={<RelatorioFinal />} />
         <Route path="/selecionar-servico" element={<SelecionarServico />} />
+          <Route path="/selecionar-funcionario" element={<SelecionarFuncionario />} />
       </Routes>
     </BrowserRouter>
   );
