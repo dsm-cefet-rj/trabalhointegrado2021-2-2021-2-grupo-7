@@ -14,7 +14,7 @@ function SelecionarHorario() {
   const navigate = useNavigate();
 
   function handleBotaoProximaTela() {
-    navigate(`/`);
+    navigate(`/selecionar-servico`);
   }
 
   return (
