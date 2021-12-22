@@ -50,7 +50,7 @@ function RelatorioFinal() {
             </Secao>
 
             <Secao titulo="Funcionário">
-              <Funcionario nome="Funcionario 2" />
+              <Funcionario nome="César" especialidade="Especialidade: Cabelo" />
             </Secao>
 
             <Secao titulo="Serviços">
