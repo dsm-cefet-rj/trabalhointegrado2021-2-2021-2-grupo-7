@@ -7,6 +7,7 @@ import Barbeiro6 from '../assets/barbeiro6.png';
 
 const barbeiros = [
   {
+    id: 1,
     valor: 'Alan',
     disponivel: true,
     selecionado: false,
@@ -14,13 +15,15 @@ const barbeiros = [
     foto: Barbeiro1,
   },
   {
+    id: 2,
     valor: 'César',
     disponivel: true,
     selecionado: true,
     especialidade: 'Especialidade: Cabelo',
-    foto: Barbeiro2,  
+    foto: Barbeiro2,
   },
   {
+    id: 3,
     valor: 'Julio',
     disponivel: true,
     selecionado: false,
@@ -28,6 +31,7 @@ const barbeiros = [
     foto: Barbeiro3,
   },
   {
+    id: 4,
     valor: 'Vitor',
     disponivel: false,
     selecionado: false,
@@ -35,6 +39,7 @@ const barbeiros = [
     foto: Barbeiro4,
   },
   {
+    id: 5,
     valor: 'David',
     disponivel: false,
     selecionado: false,
@@ -42,6 +47,7 @@ const barbeiros = [
     foto: Barbeiro5,
   },
   {
+    id: 6,
     valor: 'Lucas',
     disponivel: true,
     selecionado: false,
