@@ -1,17 +1,17 @@
-import { servicos as utilServicos} from '../../Utils/servicos';
+import { servicos as utilServicos } from '../../Utils/servicos';
 
 import rightArrowIcon from '../../assets/right-arrow.svg';
-import { useAgendamento }from '../../hooks/useAgendamento';
+import { useAgendamento } from '../../hooks/useAgendamento';
 import styles from './styles.module.css';
 import { Header } from '../../components/Header';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { handleCurrency } from '../../Utils/UtilNumero';
 
 function SelecionarServico() {
   const navigate = useNavigate();
   const { setServicoSelecionado } = useAgendamento();
   const [servicos, setServicos] = useState(utilServicos);
-
 
   function handleBotaoProximaTela() {
     navigate(`/confirmar-agendamento`);
@@ -30,8 +30,8 @@ function SelecionarServico() {
     setServicos(novosServicos);
   }
 
-  function listarSelecionados(){
-    return servicos.filter(servico => servico.selecionado)
+  function listarSelecionados() {
+    return servicos.filter(servico => servico.selecionado);
   }
 
   function adicionaSelecao(id) {
@@ -74,7 +74,7 @@ function SelecionarServico() {
               >
                 <img src={servico.imagem} alt="funcionário imagem" />
                 <strong>{servico.nome}</strong>
-                <p>R$ {servico.valor}</p>
+                <p>{handleCurrency.format(servico.valor)}</p>
               </button>
             ))}
           </div>
