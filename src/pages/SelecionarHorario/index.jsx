@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useAgendamento } from '../../hooks/useAgendamento';
+import { useDispatch } from 'react-redux';
+import {
+  selecionarHorario,
+  removerHorario,
+} from '../../store/HorarioAgendamento/Horario.actions';
 
 import { Header } from '../../components/Header';
 
@@ -13,8 +17,7 @@ import styles from './styles.module.css';
 
 function SelecionarHorario() {
   const [horarios, setHorarios] = useState(utilHorarios);
-
-  const { setHorarioSelecionado } = useAgendamento();
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
@@ -26,7 +29,7 @@ function SelecionarHorario() {
     const novosHorarios = horarios.map(horario => {
       if (horario.id === id) {
         horario.selecionado = false;
-        setHorarioSelecionado(null);
+        dispatch(removerHorario());
       }
 
       return horario;
@@ -52,7 +55,7 @@ function SelecionarHorario() {
       if (horario.id === id && horario.disponivel) {
         removeSelecionado();
         horario.selecionado = true;
-        setHorarioSelecionado(horario);
+        dispatch(selecionarHorario(horario));
       }
 
       return horario;
