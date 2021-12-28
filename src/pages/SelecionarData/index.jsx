@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router-dom';
+import DatePicker, { registerLocale } from 'react-datepicker';
+import ptBR from 'date-fns/locale/pt-BR';
 
 import { useAgendamento } from '../../hooks/useAgendamento';
 
@@ -7,6 +9,9 @@ import { Header } from '../../components/Header';
 import rightArrowIcon from '../../assets/right-arrow.svg';
 
 import styles from './styles.module.css';
+import './style.css';
+
+registerLocale('ptBR', ptBR);
 
 function SelecionarData() {
   const { data, setData } = useAgendamento();
@@ -17,6 +22,11 @@ function SelecionarData() {
     navigate(`/selecionar-horario`);
   }
 
+  function handleSelectData(valor) {
+    const novaData = new Date(valor).toLocaleDateString();
+    setData(novaData);
+  }
+
   return (
     <div className="content">
       <main className={styles.principal}>
@@ -25,11 +35,13 @@ function SelecionarData() {
         <form className={styles.formulario} onSubmit={handleBotaoProximaTela}>
           <h2>Selecione o dia desejado:</h2>
 
-          <input
-            type="text"
-            placeholder="Data"
+          <DatePicker
+            onChange={handleSelectData}
+            dateFormat="dd/MM/yyyy"
+            locale="ptBR"
+            className={styles.dataPicker}
             value={data}
-            onChange={event => setData(event.target.value)}
+            placeholderText="dd/mm/aaaa"
           />
 
           <button type="submit">

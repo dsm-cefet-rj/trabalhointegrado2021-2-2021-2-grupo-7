@@ -18,7 +18,21 @@ body {
   font-size: 1.58rem;
 }
 
-.formulario > input {
+.formulario > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+}
+
+.formulario > div > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+}
+
+.formulario > div > div > input {
   height: 4rem;
   text-align: center;
   border: 2px solid #ffa400;
@@ -32,7 +46,7 @@ body {
   font: 700 2rem 'Roboto', sans-serif;
 }
 
-.formulario > input::placeholder {
+.formulario > div > div > input::placeholder {
   color: #d3d3d3;
   font: 500 1.8rem 'Roboto', sans-serif;
 }
