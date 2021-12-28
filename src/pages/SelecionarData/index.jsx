@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import ptBR from 'date-fns/locale/pt-BR';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { useAgendamento } from '../../hooks/useAgendamento';
+import { setData } from '../../store/DataAgendamento/Data.actions';
 
 import { Header } from '../../components/Header';
 
@@ -14,7 +15,8 @@ import './style.css';
 registerLocale('ptBR', ptBR);
 
 function SelecionarData() {
-  const { data, setData } = useAgendamento();
+  const data = useSelector(state => state.data);
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
@@ -24,7 +26,7 @@ function SelecionarData() {
 
   function handleSelectData(valor) {
     const novaData = new Date(valor).toLocaleDateString();
-    setData(novaData);
+    dispatch(setData(novaData));
   }
 
   return (

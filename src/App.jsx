@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { AgendamentoContextProvider } from './contexts/AgendamentoContext';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 import { Home } from './pages/home';
 import { SelecionarData } from './pages/SelecionarData';
@@ -13,7 +14,7 @@ import { Conclusao } from './pages/Conclusao';
 function App() {
   return (
     <BrowserRouter>
-      <AgendamentoContextProvider>
+      <Provider store={store}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/selecionar-data" element={<SelecionarData />} />
@@ -26,7 +27,7 @@ function App() {
             element={<SelecionarFuncionario />}
           />
         </Routes>
-      </AgendamentoContextProvider>
+      </Provider>
     </BrowserRouter>
   );
 }
