@@ -10,6 +10,7 @@ import { RelatorioFinal } from './pages/RelatorioFinal';
 import { SelecionarServico } from './pages/SelecionarServico';
 import { SelecionarFuncionario } from './pages/SelecionarFuncionario';
 import { Conclusao } from './pages/Conclusao';
+import { SelecionarCliente } from './pages/SelecionarCliente';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Provider store={store}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/selecionar-cliente" element={<SelecionarCliente />} />
           <Route path="/selecionar-data" element={<SelecionarData />} />
           <Route path="/selecionar-horario" element={<SelecionarHorario />} />
           <Route path="/confirmar-agendamento" element={<RelatorioFinal />} />
