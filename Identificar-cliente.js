@@ -28,10 +28,19 @@ div class = "half-box">
   </div>
 div class = "half-box">
   <label for"passConfirmation">Sobrenome</label>
-<input type="password" name= "password" id="passConfirmation"placeholder="Digite a sua senha">
+<input type="password" name= "passConfirmation" id="passConfirmation"placeholder="Confirme a sua senha">
+  </div>
+<div class="full-box">
+ <input type="checkbox" name="agreement" id ="agreement">
+   <label for="agreement" id "agreement-label">Eu li e aceito os<a href="#">termos de uso</a></label>
+  </div>
+<div class="full-box">
+ <input type="submit" id ="btn-submit" value="Registrar">
+   <label for="agreement" id "agreement-label">Eu li e aceito os<a href="#">termos de uso</a></label>
   </div>
 </form> 
     </div>
+<p class="error-validation template></p>
   <script src= "js/script.js"></script>
 </body>
 </html>
