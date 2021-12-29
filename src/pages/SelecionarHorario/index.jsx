@@ -16,6 +16,7 @@ import styles from './styles.module.css';
 import { useEffect, useState } from 'react';
 
 function SelecionarHorario() {
+  const [preparado, setPreparado] = useState(false);
   const [horarios, setHorarios] = useState(null);
 
   const horarioSelecionado = useSelector(state => state.horario);
@@ -24,14 +25,11 @@ function SelecionarHorario() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    loadHorarios();
+    api.get('/horarios').then(res => {
+      setHorarios(res.data);
+      setPreparado(true);
+    });
   }, []);
-
-  async function loadHorarios() {
-    const horariosAux = (await api.get('/horarios')).data;
-
-    setHorarios(horariosAux);
-  }
 
   function handleBotaoProximaTela() {
     navigate(`/selecionar-funcionario`);
@@ -53,6 +51,10 @@ function SelecionarHorario() {
     }
   }
 
+  if (!preparado) {
+    return '';
+  }
+
   return (
     <div className="content">
       <Header />
@@ -61,26 +63,24 @@ function SelecionarHorario() {
         <form onSubmit={handleBotaoProximaTela}>
           <h2>Selecione o horário desejado:</h2>
           <div className={styles.horarios}>
-            {horarios !== null
-              ? horarios.map(horario => (
-                  <button
-                    key={horario.id}
-                    type="button"
-                    onClick={() => handleSelecionarHorario(horario)}
-                    className={
-                      styles.horario +
-                      (verificaSelecao(horario.id)
-                        ? ' ' + styles.selecionado
-                        : horario.disponivel
-                        ? ' ' + styles.disponivel
-                        : '')
-                    }
-                    disabled={!horario.disponivel}
-                  >
-                    <strong>{horario.valor}</strong>
-                  </button>
-                ))
-              : ''}
+            {horarios.map(horario => (
+              <button
+                key={horario.id}
+                type="button"
+                onClick={() => handleSelecionarHorario(horario)}
+                className={
+                  styles.horario +
+                  (verificaSelecao(horario.id)
+                    ? ' ' + styles.selecionado
+                    : horario.disponivel
+                    ? ' ' + styles.disponivel
+                    : '')
+                }
+                disabled={!horario.disponivel}
+              >
+                <strong>{horario.valor}</strong>
+              </button>
+            ))}
           </div>
 
           <button type="submit">
