@@ -32,7 +32,7 @@ function SelecionarHorario() {
   }, []);
 
   function handleBotaoProximaTela() {
-    navigate(`/selecionar-funcionario`);
+    navigate(`/selecionar-servico`);
   }
 
   function handleSelecionarHorario(horario) {
