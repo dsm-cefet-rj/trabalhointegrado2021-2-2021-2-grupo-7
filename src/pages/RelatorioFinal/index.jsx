@@ -11,16 +11,13 @@ import { Servico } from '../../components/RelatorioFinal/Servico';
 import buttonImage from '../../assets/check.svg';
 
 import styles from './styles.module.css';
-import { api } from '../../services/api';
 
 function RelatorioFinal() {
   const navigate = useNavigate();
 
-  const data = useSelector(state => state.data);
-  const horario = useSelector(state => state.horario);
-  const funcionario = useSelector(state => state.funcionario);
-  const servicos = useSelector(state => state.servicos);
-  const cliente = useSelector(state => state.cliente);
+  const { data, horario, funcionario, servicos, cliente } = useSelector(
+    state => state,
+  );
 
   function handleConcluir() {
     navigate(`/conclusao`);
