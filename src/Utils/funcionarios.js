@@ -1,52 +1,45 @@
-import Barbeiro1 from '../assets/barbeiro1.png';
-import Barbeiro2 from '../assets/barbeiro2.png';
-import Barbeiro3 from '../assets/barbeiro3.png';
-import Barbeiro4 from '../assets/barbeiro4.jpg';
-import Barbeiro5 from '../assets/barbeiro5.jpg';
-import Barbeiro6 from '../assets/barbeiro6.png';
-
 const funcs = [
   {
     id: 1,
     nome: 'Alan',
     selecionado: false,
     especialidade: 'Especialidade: Barba',
-    foto: Barbeiro1,
+    foto: 'https://i.imgur.com/PLZBUHp.jpg',
   },
   {
     id: 2,
     nome: 'César',
     selecionado: false,
     especialidade: 'Especialidade: Cabelo',
-    foto: Barbeiro2,
+    foto: 'https://i.imgur.com/B9QWyqH.jpg',
   },
   {
     id: 3,
     nome: 'Julio',
     selecionado: false,
     especialidade: 'Especialidade: Barba',
-    foto: Barbeiro3,
+    foto: 'https://i.imgur.com/u65jqB8.png',
   },
   {
     id: 4,
     nome: 'Vitor',
     selecionado: false,
     especialidade: 'Especialidade: Cabelo',
-    foto: Barbeiro4,
+    foto: 'https://i.imgur.com/sJqMh5M.jpg',
   },
   {
     id: 5,
     nome: 'David',
     selecionado: false,
     especialidade: 'Especialidade: Cabelo',
-    foto: Barbeiro5,
+    foto: 'https://i.imgur.com/Tl28BgK.jpg',
   },
   {
     id: 6,
     nome: 'Lucas',
     selecionado: false,
     especialidade: 'Especialidade: Barba',
-    foto: Barbeiro6,
+    foto: 'https://i.imgur.com/NI4A4Xs.jpg',
   },
 ];
 

@@ -1,74 +1,63 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   selecionarHorario,
   removerHorario,
 } from '../../store/HorarioAgendamento/Horario.actions';
 
+import { api } from '../../services/api';
+
 import { Header } from '../../components/Header';
 
 import rightArrowIcon from '../../assets/right-arrow.svg';
 
-import { horarios as utilHorarios } from '../../Utils/horarios';
-
 import styles from './styles.module.css';
+import { useEffect, useState } from 'react';
 
 function SelecionarHorario() {
-  const [horarios, setHorarios] = useState(utilHorarios);
+  const [horarios, setHorarios] = useState(null);
+
+  const horarioSelecionado = useSelector(state => state.horario);
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    loadHorarios();
+  }, []);
+
+  async function loadHorarios() {
+    const horariosAux = (await api.get('/horarios')).data;
+
+    setHorarios(horariosAux);
+  }
 
   function handleBotaoProximaTela() {
     navigate(`/selecionar-funcionario`);
   }
 
-  function removeSelecao(id) {
-    const novosHorarios = horarios.map(horario => {
-      if (horario.id === id) {
-        horario.selecionado = false;
-        dispatch(removerHorario());
-      }
-
-      return horario;
-    });
-
-    setHorarios(novosHorarios);
+  function removeSelecao() {
+    dispatch(removerHorario());
   }
 
-  function removeSelecionado() {
-    const novosHorarios = horarios.map(horario => {
-      if (horario.selecionado) {
-        horario.selecionado = false;
-      }
-
-      return horario;
-    });
-
-    setHorarios(novosHorarios);
-  }
-
-  function adicionaSelecao(id) {
-    const novosHorarios = horarios.map(horario => {
-      if (horario.id === id && horario.disponivel) {
-        removeSelecionado();
-        horario.selecionado = true;
-        dispatch(selecionarHorario(horario));
-      }
-
-      return horario;
-    });
-
-    setHorarios(novosHorarios);
+  function adicionaSelecao(horario) {
+    dispatch(selecionarHorario(horario));
   }
 
   function handleSelecionarHorario(horario) {
-    if (horario.selecionado) {
-      removeSelecao(horario.id);
+    if (horario.id === horarioSelecionado.id && horario.disponivel) {
+      removeSelecao();
     } else {
-      adicionaSelecao(horario.id);
+      adicionaSelecao(horario);
+    }
+  }
+
+  function verificaSelecao(id) {
+    if (id === horarioSelecionado.id) {
+      return true;
+    } else {
+      return false;
     }
   }
 
@@ -80,24 +69,26 @@ function SelecionarHorario() {
         <form onSubmit={handleBotaoProximaTela}>
           <h2>Selecione o horário desejado:</h2>
           <div className={styles.horarios}>
-            {horarios.map(horario => (
-              <button
-                key={horario.id}
-                type="button"
-                onClick={() => handleSelecionarHorario(horario)}
-                className={
-                  styles.horario +
-                  (horario.selecionado
-                    ? ' ' + styles.selecionado
-                    : horario.disponivel
-                    ? ' ' + styles.disponivel
-                    : '')
-                }
-                disabled={!horario.disponivel}
-              >
-                <strong>{horario.valor}</strong>
-              </button>
-            ))}
+            {horarios !== null
+              ? horarios.map(horario => (
+                  <button
+                    key={horario.id}
+                    type="button"
+                    onClick={() => handleSelecionarHorario(horario)}
+                    className={
+                      styles.horario +
+                      (verificaSelecao(horario.id)
+                        ? ' ' + styles.selecionado
+                        : horario.disponivel
+                        ? ' ' + styles.disponivel
+                        : '')
+                    }
+                    disabled={!horario.disponivel}
+                  >
+                    <strong>{horario.valor}</strong>
+                  </button>
+                ))
+              : ''}
           </div>
 
           <button type="submit">

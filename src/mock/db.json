@@ -1,0 +1,170 @@
+{
+  "funcionarios": [
+    {
+      "id": 1,
+      "nome": "Alan",
+      "especialidade": "Especialidade: Barba",
+      "foto": "https://i.imgur.com/PLZBUHp.jpg"
+    },
+    {
+      "id": 2,
+      "nome": "César",
+      "especialidade": "Especialidade: Cabelo",
+      "foto": "https://i.imgur.com/B9QWyqH.jpg"
+    },
+    {
+      "id": 3,
+      "nome": "Julio",
+      "especialidade": "Especialidade: Barba",
+      "foto": "https://i.imgur.com/u65jqB8.png"
+    },
+    {
+      "id": 4,
+      "nome": "Vitor",
+      "especialidade": "Especialidade: Cabelo",
+      "foto": "https://i.imgur.com/sJqMh5M.jpg"
+    },
+    {
+      "id": 5,
+      "nome": "David",
+      "especialidade": "Especialidade: Cabelo",
+      "foto": "https://i.imgur.com/Tl28BgK.jpg"
+    },
+    {
+      "id": 6,
+      "nome": "Lucas",
+      "especialidade": "Especialidade: Barba",
+      "foto": "https://i.imgur.com/NI4A4Xs.jpg"
+    }
+  ],
+
+  "servicos": [
+    {
+      "id": 1,
+      "nome": "Máquina",
+      "valor": 20.0,
+      "imagem": "https://i.imgur.com/lIEkxN4.png"
+    },
+    {
+      "id": 2,
+      "nome": "Tesoura",
+      "valor": 15.99,
+      "imagem": "https://i.imgur.com/1Ken3cC.png"
+    },
+    {
+      "id": 3,
+      "nome": "Navalha",
+      "valor": 5.99,
+      "imagem": "https://i.imgur.com/ZNOdJdq.png"
+    },
+    {
+      "id": 4,
+      "nome": "Barba",
+      "valor": 8.5,
+      "imagem": "https://i.imgur.com/QYISrOT.png"
+    }
+  ],
+
+  "horarios": [
+    {
+      "id": 1,
+      "valor": "08:00",
+      "disponivel": true
+    },
+    {
+      "id": 2,
+      "valor": "08:30",
+      "disponivel": true
+    },
+    {
+      "id": 3,
+      "valor": "09:00",
+      "disponivel": true
+    },
+    {
+      "id": 4,
+      "valor": "09:30",
+      "disponivel": true
+    },
+    {
+      "id": 5,
+      "valor": "10:00",
+      "disponivel": true
+    },
+    {
+      "id": 6,
+      "valor": "10:30",
+      "disponivel": true
+    },
+    {
+      "id": 7,
+      "valor": "11:00",
+      "disponivel": true
+    },
+    {
+      "id": 8,
+      "valor": "11:30",
+      "disponivel": false
+    },
+    {
+      "id": 9,
+      "valor": "13:00",
+      "disponivel": false
+    },
+    {
+      "id": 10,
+      "valor": "13:30",
+      "disponivel": true
+    },
+    {
+      "id": 11,
+      "valor": "14:00",
+      "disponivel": true
+    },
+    {
+      "id": 12,
+      "valor": "14:30",
+      "disponivel": false
+    },
+    {
+      "id": 13,
+      "valor": "15:00",
+      "disponivel": false
+    },
+    {
+      "id": 14,
+      "valor": "15:30",
+      "disponivel": false
+    },
+    {
+      "id": 15,
+      "valor": "16:00",
+      "disponivel": false
+    },
+    {
+      "id": 16,
+      "valor": "16:30",
+      "disponivel": false
+    },
+    {
+      "id": 17,
+      "valor": "17:00",
+      "disponivel": true
+    },
+    {
+      "id": 18,
+      "valor": "17:30",
+      "disponivel": false
+    },
+    {
+      "id": 19,
+      "valor": "18:00",
+      "disponivel": true
+    },
+    {
+      "id": 20,
+      "valor": "18:30",
+      "disponivel": false
+    }
+  ]
+}
