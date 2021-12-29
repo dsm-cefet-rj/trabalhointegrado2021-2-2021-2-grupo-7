@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import { useAgendamento } from '../../hooks/useAgendamento';
 import { handleCurrency } from '../../Utils/UtilNumero';
 
 import { Header } from '../../components/Header';
@@ -11,23 +11,23 @@ import { Servico } from '../../components/RelatorioFinal/Servico';
 import buttonImage from '../../assets/check.svg';
 
 import styles from './styles.module.css';
+import { api } from '../../services/api';
 
 function RelatorioFinal() {
   const navigate = useNavigate();
 
-  const {
-    data,
-    horarioSelecionado,
-    servicoSelecionado,
-    funcionarioSelecionado,
-  } = useAgendamento();
+  const data = useSelector(state => state.data);
+  const horario = useSelector(state => state.horario);
+  const funcionario = useSelector(state => state.funcionario);
+  const servicos = useSelector(state => state.servicos);
+  const cliente = useSelector(state => state.cliente);
 
   function handleConcluir() {
     navigate(`/conclusao`);
   }
 
   function getValorTotal() {
-    const valorTotal = servicoSelecionado.reduce((acc, servico) => {
+    const valorTotal = servicos.reduce((acc, servico) => {
       acc += Number(servico.valor);
       return acc;
     }, 0);
@@ -47,11 +47,11 @@ function RelatorioFinal() {
             <Secao titulo="Cliente">
               <p>
                 <strong>Nome: </strong>
-                <span>Zézinho Exemplo</span>
+                <span>{cliente.nome}</span>
               </p>
               <p>
                 <strong>Numero de contato: </strong>
-                <span>(21) 1234-5678</span>
+                <span>{cliente.telefone}</span>
               </p>
             </Secao>
 
@@ -62,17 +62,17 @@ function RelatorioFinal() {
               </p>
               <p>
                 <strong>Horário: </strong>
-                <span> {horarioSelecionado.valor} </span>
+                <span> {horario.valor} </span>
               </p>
             </Secao>
 
             <Secao titulo="Funcionário">
-              <Funcionario funcionario={funcionarioSelecionado} />
+              <Funcionario funcionario={funcionario} />
             </Secao>
 
             <Secao titulo="Serviços">
               <div className={styles.servicos}>
-                {servicoSelecionado.map(servico => (
+                {servicos.map(servico => (
                   <Servico key={servico.id} servico={servico} />
                 ))}
               </div>

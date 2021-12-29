@@ -21,7 +21,7 @@ function SelecionarData() {
   const navigate = useNavigate();
 
   function handleBotaoProximaTela() {
-    navigate(`/selecionar-horario`);
+    navigate(`/selecionar-funcionario`);
   }
 
   function handleSelectData(valor) {
