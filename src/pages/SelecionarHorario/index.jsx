@@ -37,19 +37,11 @@ function SelecionarHorario() {
     navigate(`/selecionar-funcionario`);
   }
 
-  function removeSelecao() {
-    dispatch(removerHorario());
-  }
-
-  function adicionaSelecao(horario) {
-    dispatch(selecionarHorario(horario));
-  }
-
   function handleSelecionarHorario(horario) {
     if (horario.id === horarioSelecionado.id && horario.disponivel) {
-      removeSelecao();
+      dispatch(removerHorario());
     } else {
-      adicionaSelecao(horario);
+      dispatch(selecionarHorario(horario));
     }
   }
 
