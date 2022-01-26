@@ -13,7 +13,10 @@ function Main() {
   return (
     <main className={styles.principal}>
       <div className={styles.acoes}>
-        <Link to="/selecionar-data" className={styles.acaoItem + ' ' + styles.acaoVermelho}>
+        <Link
+          to="/selecionar-cliente"
+          className={styles.acaoItem + ' ' + styles.acaoVermelho}
+        >
           <img src={calendarioIcon} alt="calendario icone" />
           Agendar agora
         </Link>

@@ -1,58 +1,55 @@
-import { servicos as utilServicos } from '../../Utils/servicos';
-
 import rightArrowIcon from '../../assets/right-arrow.svg';
-import { useAgendamento } from '../../hooks/useAgendamento';
 import styles from './styles.module.css';
 import { Header } from '../../components/Header';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { handleCurrency } from '../../Utils/UtilNumero';
+import { api } from '../../services/api';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  removerServico,
+  selecionarServico,
+} from '../../store/ServicosAgendamento/Servico.actions';
 
 function SelecionarServico() {
+  const [preparado, setPreparado] = useState(false);
+  const [servicos, setServicos] = useState(null);
+
+  const servicosSelecionados = useSelector(state => state.servicos);
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
-  const { setServicoSelecionado } = useAgendamento();
-  const [servicos, setServicos] = useState(utilServicos);
+
+  useEffect(() => {
+    api.get('/servicos').then(res => {
+      setServicos(res.data);
+      setPreparado(true);
+    });
+  });
 
   function handleBotaoProximaTela() {
     navigate(`/confirmar-agendamento`);
   }
 
-  function removeSelecao(id) {
-    const novosServicos = servicos.map(servico => {
-      if (servico.id === id) {
-        servico.selecionado = false;
-        setServicoSelecionado(listarSelecionados());
-      }
-
-      return servico;
-    });
-
-    setServicos(novosServicos);
-  }
-
-  function listarSelecionados() {
-    return servicos.filter(servico => servico.selecionado);
-  }
-
-  function adicionaSelecao(id) {
-    const novosServicos = servicos.map(servico => {
-      if (servico.id === id) {
-        servico.selecionado = true;
-        setServicoSelecionado(listarSelecionados());
-      }
-
-      return servico;
-    });
-
-    setServicos(novosServicos);
-  }
-
   function handleSelecionarServico(servico) {
-    if (servico.selecionado) {
-      removeSelecao(servico.id);
+    if (
+      servicosSelecionados.some(
+        servicoSelecionado => servicoSelecionado.id === servico.id,
+      )
+    ) {
+      dispatch(removerServico(servico.id));
     } else {
-      adicionaSelecao(servico.id);
+      dispatch(selecionarServico(servico));
     }
+  }
+
+  function verificaSelecao(id) {
+    const achou = servicosSelecionados.some(servico => servico.id === id);
+    return achou;
+  }
+
+  if (!preparado) {
+    return '';
   }
 
   return (
@@ -69,7 +66,7 @@ function SelecionarServico() {
                 onClick={() => handleSelecionarServico(servico)}
                 className={
                   styles.servico +
-                  (servico.selecionado ? ` ${styles.selecionado}` : '')
+                  (verificaSelecao(servico.id) ? ` ${styles.selecionado}` : '')
                 }
               >
                 <img src={servico.imagem} alt="funcionário imagem" />

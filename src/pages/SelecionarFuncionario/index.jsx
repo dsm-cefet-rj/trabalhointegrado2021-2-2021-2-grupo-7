@@ -1,67 +1,55 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAgendamento } from '../../hooks/useAgendamento';
+import {
+  removerFuncionario,
+  selecionarFuncionario,
+} from '../../store/FuncionarioAgendamento/Funcionario.actions';
+import { useSelector, useDispatch } from 'react-redux';
+import { api } from '../../services/api';
+
 import { Header } from '../../components/Header';
 
 import rightArrowIcon from '../../assets/right-arrow.svg';
 
-import { funcs as utilFunc } from '../../Utils/funcionarios';
-
 import styles from './styles.module.css';
 
 function SelecionarFuncionario() {
-  const [funcs, setFunc] = useState(utilFunc);
+  const [preparado, setPreparado] = useState(false);
+  const [funcionarios, setFuncionarios] = useState(null);
   const navigate = useNavigate();
-  const { setFuncSelecionado } = useAgendamento();
+
+  const funcionarioSelecionado = useSelector(state => state.funcionario);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    api.get('/funcionarios').then(res => {
+      setFuncionarios(res.data);
+      setPreparado(true);
+    });
+  }, []);
 
   function handleBotaoProximaTela() {
-    navigate(`/selecionar-servico`);
-  }
-  function removeSelecao(id) {
-    const novosFunc = funcs.map(func => {
-      if (func.id === id) {
-        func.selecionado = false;
-        setFuncSelecionado(func);
-      }
-
-      return func;
-    });
-
-    setFunc(novosFunc);
+    navigate(`/selecionar-horario`);
   }
 
-  function removeSelecionado() {
-    const novosFunc = funcs.map(func => {
-      if (func.selecionado) {
-        func.selecionado = false;
-      }
-
-      return func;
-    });
-
-    setFunc(novosFunc);
-  }
-
-  function adicionaSelecao(id) {
-    const novosFunc = funcs.map(func => {
-      if (func.id === id) {
-        removeSelecionado();
-        func.selecionado = true;
-        setFuncSelecionado(func);
-      }
-
-      return func;
-    });
-
-    setFunc(novosFunc);
-  }
-
-  function handleSelecionarFunc(func) {
-    if (func.selecionado) {
-      removeSelecao(func.id);
+  function handleSelecionarFunc(funcionario) {
+    if (funcionario.id === funcionarioSelecionado.id) {
+      dispatch(removerFuncionario());
     } else {
-      adicionaSelecao(func.id);
+      dispatch(selecionarFuncionario(funcionario));
     }
+  }
+
+  function verificaSelecao(id) {
+    if (id === funcionarioSelecionado.id) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  if (!preparado) {
+    return '';
   }
 
   return (
@@ -72,14 +60,14 @@ function SelecionarFuncionario() {
         <form onSubmit={handleBotaoProximaTela}>
           <h2>Selecione o Barbeiro desejado:</h2>
           <div className={styles.funcionarios}>
-            {funcs.map(func => (
+            {funcionarios.map(func => (
               <button
                 key={func.id}
                 type="button"
                 onClick={() => handleSelecionarFunc(func)}
                 className={
                   styles.func +
-                  (func.selecionado ? ' ' + styles.selecionado : '')
+                  (verificaSelecao(func.id) ? ' ' + styles.selecionado : '')
                 }
               >
                 <p>{func.nome}</p>
